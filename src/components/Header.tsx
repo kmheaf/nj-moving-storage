@@ -12,8 +12,8 @@ export function Header(){
     <header className="navbar sticky top-0 z-40">
       <div className="mx-auto max-w-6xl px-6 flex items-center gap-4 h-16">
         <Link href="/" className="flex items-center gap-3">
-          <Image src="/logo.png" alt="New Jersey Moving & Storage" width={48} height={48} priority />
-          <span className="font-semibold text-base md:text-lg">New Jersey Moving &amp; Storage</span>
+          <Image src="/logo.png" alt="New Jersey Moving & Storage" width={56} height={56} priority />
+          <span className="font-semibold text-lg">New Jersey Moving &amp; Storage</span>
         </Link>
         <nav className="ml-auto flex items-center gap-2">
           {link("/", "Home")}

@@ -1,44 +1,41 @@
 export const dynamic = "force-dynamic"
 import Image from "next/image"
 
+function ServiceCard({title,desc}:{title:string,desc:string}){
+  return <div className="card">
+    <div className="font-semibold">{title}</div>
+    <p className="mt-2 text-sm">{desc}</p>
+  </div>
+}
+
 export default function Page(){
   return (
     <>
-      {/* HERO */}
+      {/* HERO with centered logo */}
       <section className="hero">
-        <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
-          <div className="flex items-center gap-4 mb-6">
-            <Image src="/logo.png" alt="NJ Moving & Storage" width={72} height={72} priority />
-            <span className="sr-only">New Jersey Moving &amp; Storage</span>
-          </div>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
-            Jersey Strong Moves — Local Experts in Ramsey &amp; Bergen County
-          </h1>
-          <p className="mt-5 text-lg md:text-xl max-w-3xl">
-            Trusted movers who pack with care, move with speed, and deliver peace of mind — right here in Northern New Jersey.
-          </p>
-          <div className="mt-8 flex gap-3">
-            <a className="btn btn-primary" href="/quote">Get a Free Quote</a>
-            <a className="btn btn-outline" href="/shop">Shop Moving Supplies</a>
+        <div className="mx-auto max-w-6xl px-6 pt-16 md:pt-20 pb-14">
+          <div className="flex flex-col items-start md:items-center">
+            <Image src="/logo.png" alt="New Jersey Moving & Storage" width={96} height={96} priority />
+            <h1 className="mt-6 text-4xl md:text-6xl font-extrabold tracking-tight max-w-4xl text-balance">
+              Jersey Strong Moves — Local Experts in Ramsey &amp; Bergen County
+            </h1>
+            <p className="mt-5 text-lg md:text-xl max-w-3xl text-pretty">
+              Trusted movers who pack with care, move with speed, and deliver peace of mind — right here in Northern New Jersey.
+            </p>
+            <div className="mt-8 flex gap-3">
+              <a className="btn btn-primary" href="/quote">Get a Free Quote</a>
+              <a className="btn btn-outline" href="/shop">Shop Moving Supplies</a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* TRUST CARDS */}
+      {/* TRUST */}
       <section className="section">
         <div className="mx-auto max-w-6xl px-6 grid gap-6 md:grid-cols-3">
-          <div className="card">
-            <div className="text-[var(--brand-blue)] font-semibold">Licensed &amp; Insured</div>
-            <p className="mt-2 text-sm">Your belongings are protected every step of the way.</p>
-          </div>
-          <div className="card">
-            <div className="text-[var(--brand-blue)] font-semibold">On Time, Every Time</div>
-            <p className="mt-2 text-sm">We treat your schedule like our own.</p>
-          </div>
-          <div className="card">
-            <div className="text-[var(--brand-blue)] font-semibold">Locally Trusted</div>
-            <p className="mt-2 text-sm">Serving Ramsey, Mahwah, Ridgewood, Paramus, and all of Bergen County.</p>
-          </div>
+          <ServiceCard title="Licensed & Insured" desc="Your belongings are protected every step of the way." />
+          <ServiceCard title="On Time, Every Time" desc="We treat your schedule like our own." />
+          <ServiceCard title="Locally Trusted" desc="Ramsey, Mahwah, Ridgewood, Paramus, Montvale, Wyckoff & Bergen County." />
         </div>
       </section>
 
@@ -46,14 +43,14 @@ export default function Page(){
       <section className="section">
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-2xl font-bold">Our Services</h2>
-          <ul className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            <li className="card">Residential Moves</li>
-            <li className="card">Commercial &amp; Office Relocations</li>
-            <li className="card">Long-Distance Moves</li>
-            <li className="card">Packing &amp; Unpacking</li>
-            <li className="card">Storage Solutions</li>
-            <li className="card">Specialty Items (Pianos, Safes)</li>
-          </ul>
+          <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <ServiceCard title="Residential Moves" desc="Apartments, condos, family homes — careful packing & protection." />
+            <ServiceCard title="Commercial & Office" desc="Minimal downtime, weekend/after-hours options." />
+            <ServiceCard title="Long-Distance" desc="Interstate planning & reliable ETAs." />
+            <ServiceCard title="Packing & Unpacking" desc="Full-service or partial — you choose." />
+            <ServiceCard title="Storage Solutions" desc="Short or long-term storage to fit your timeline." />
+            <ServiceCard title="Specialty Items" desc="Pianos, safes, oversized furniture — handled right." />
+          </div>
           <a className="inline-block mt-6 underline" href="/services">See all services →</a>
         </div>
       </section>
@@ -70,7 +67,7 @@ export default function Page(){
             </div>
             <div className="card">
               <div className="kpi">2</div>
-              <div className="mt-2 font-semibold">Plan &amp; Protect</div>
+              <div className="mt-2 font-semibold">Plan & Protect</div>
               <p className="text-sm mt-1">We build a plan and protect floors, walls, and furniture.</p>
             </div>
             <div className="card">
@@ -87,11 +84,11 @@ export default function Page(){
         <div className="mx-auto max-w-6xl px-6 grid gap-6 md:grid-cols-3">
           <div className="card text-center"><div className="kpi">95%</div><div className="mt-1 text-sm text-[var(--muted)]">On-time arrival rate</div></div>
           <div className="card text-center"><div className="kpi">4.9★</div><div className="mt-1 text-sm text-[var(--muted)]">Avg. customer rating</div></div>
-          <div className="card text-center"><div className="kpi">#1</div><div className="mt-1 text-sm text-[var(--muted)]">Ramsey &amp; Bergen County focus</div></div>
+          <div className="card text-center"><div className="kpi">#1</div><div className="mt-1 text-sm text-[var(--muted)]">Focus on Ramsey & Bergen County</div></div>
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
+      {/* TESTIMONIALS (placeholder quotes) */}
       <section className="section bg-[#fafbff]">
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-2xl font-bold">What Customers Say</h2>
@@ -103,27 +100,27 @@ export default function Page(){
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* FAQ (accordion) */}
       <section className="section">
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-2xl font-bold">FAQs</h2>
-          <div className="grid gap-4 md:grid-cols-2 mt-4">
-            <div className="card">
-              <div className="font-semibold">Are you licensed &amp; insured?</div>
-              <p className="text-sm mt-1">Yes — fully licensed and insured for residential and commercial moves.</p>
-            </div>
-            <div className="card">
-              <div className="font-semibold">Do you offer packing?</div>
-              <p className="text-sm mt-1">Full-service packing, partial packing, and unpacking services are available.</p>
-            </div>
-            <div className="card">
-              <div className="font-semibold">How early should I book?</div>
-              <p className="text-sm mt-1">2–4 weeks is ideal, especially for weekends and month-end dates in Bergen County.</p>
-            </div>
-            <div className="card">
-              <div className="font-semibold">Do you provide storage?</div>
-              <p className="text-sm mt-1">Yes — short and long-term storage options available.</p>
-            </div>
+          <div className="mt-4">
+            <details className="faq">
+              <summary>Are you licensed & insured?</summary>
+              <p className="mt-2 text-sm">Yes — fully licensed and insured for residential and commercial moves.</p>
+            </details>
+            <details className="faq">
+              <summary>Do you offer packing?</summary>
+              <p className="mt-2 text-sm">Full-service packing, partial packing, and unpacking services are available.</p>
+            </details>
+            <details className="faq">
+              <summary>How early should I book?</summary>
+              <p className="mt-2 text-sm">2–4 weeks is ideal, especially for weekends and month-end dates in Bergen County.</p>
+            </details>
+            <details className="faq">
+              <summary>Do you provide storage?</summary>
+              <p className="mt-2 text-sm">Yes — short and long-term storage options available.</p>
+            </details>
           </div>
         </div>
       </section>

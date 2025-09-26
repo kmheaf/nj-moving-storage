@@ -1,21 +1,65 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
-/* Theme colors */
+/* Brand palette */
 :root{
-  --brand-blue:#3C3B6E;
-  --brand-red:#B22234;
+  --brand-blue:#24316A; /* navy */
+  --brand-red:#B22234;  /* flag red */
+  --ink:#101114;
+  --muted:#5b6170;
 }
 
-body{ color:#111; background:#fff }
+html,body{height:100%}
+body{ color:var(--ink); background:#fff }
 
-/* Hero flag background */
-.hero{
-  position:relative;
-  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.92)), url("/flag-bg.svg") center/cover no-repeat;
-  border-bottom:1px solid #eee;
+/* Navbar */
+.navbar{
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,.85);
+  border-bottom: 1px solid #eceff3;
 }
+.nav-link{ border-radius: 10px; padding: .5rem .75rem; }
+.nav-link.active{ background: var(--brand-blue); color:#fff; }
 
 /* Buttons */
-.btn{ @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-medium border; }
-.btn-primary{ background:var(--brand-blue); color:white; border-color:var(--brand-blue); }
-.btn-outline{ color:#111; border-color:#111; background:white; }
+.btn{ @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold border transition; }
+.btn-primary{ background:var(--brand-blue); color:#fff; border-color:var(--brand-blue); }
+.btn-primary:hover{ filter:brightness(.95); }
+.btn-outline{ background:#fff; color:var(--ink); border-color:#1f232b20; }
+.btn-outline:hover{ background:#f6f7fb; }
+
+/* Hero with subtle US stars */
+.hero{
+  position:relative;
+  background: url("/flag-bg.svg") center/cover no-repeat;
+  border-bottom: 1px solid #eef0f5;
+}
+
+/* Section + cards */
+.section{ padding: 4rem 0; }
+.card{
+  border:1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 1.25rem;
+  background:#fff;
+  box-shadow: 0 1px 0 0 #f0f2f7 inset;
+}
+
+.kpi{ font-weight: 800; font-size: 2rem; color: var(--brand-blue); }
+
+/* FAQ accordion */
+details.faq{
+  border:1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  background:#fff;
+}
+details.faq + details.faq{ margin-top: .75rem; }
+details.faq summary{
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+}
+details.faq summary::-webkit-details-marker { display:none; }
+
+/* Footer */
+.footer{ border-top:1px solid #eceff3; background:#fff; }
