@@ -1,39 +1,23 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Theme colors */
 :root{
-  --brand-blue:#3C3B6E; /* flag blue */
-  --brand-red:#B22234;  /* flag red */
+  --brand-blue:#3C3B6E;
+  --brand-red:#B22234;
 }
 
-/* Typography & base */
-html,body{height:100%}
-body{
-  color:#111;
-  background:#fff;
-  font-feature-settings:"ss01" on,"ss02" on;
-}
+body{ color:#111; background:#fff }
 
-/* Hero background with subtle flag overlay */
-.hero {
-  position: relative;
-  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url("/flag-bg.svg") center/cover no-repeat;
-  border-bottom: 1px solid #eee;
+/* Hero flag background */
+.hero{
+  position:relative;
+  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.92)), url("/flag-bg.svg") center/cover no-repeat;
+  border-bottom:1px solid #eee;
 }
 
 /* Buttons */
-.btn {
-  @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-medium border;
-}
-.btn-primary {
-  background: var(--brand-blue);
-  color:white;
-  border-color: var(--brand-blue);
-}
-.btn-outline {
-  color:#111;
-  border-color:#111;
-  background:white;
-}
+.btn{ @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-medium border; }
+.btn-primary{ background:var(--brand-blue); color:white; border-color:var(--brand-blue); }
+.btn-outline{ color:#111; border-color:#111; background:white; }
