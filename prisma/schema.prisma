@@ -1,5 +1,11 @@
-﻿generator client { provider = "prisma-client-js" }
-datasource db  { provider = "postgresql"; url = env("DATABASE_URL") }
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
 
 model User {
   id        String   @id @default(cuid())
@@ -20,8 +26,8 @@ model Lead {
   destination   String
   bedrooms      Int?
   notes         String?
-  source        String?   // google, yelp, referral, gbp
-  status        String    @default("new") // new, estimating, booked, closed
+  source        String?
+  status        String    @default("new")
   createdAt     DateTime  @default(now())
   jobs          Job[]
   notesRel      Note[]
@@ -33,7 +39,7 @@ model Job {
   lead         Lead     @relation(fields: [leadId], references: [id])
   quotedHours  Float?
   hourlyRate   Int?
-  depositCents Int?     // Stripe deposit
+  depositCents Int?
   startAt      DateTime?
   endAt        DateTime?
   crewId       String?
@@ -46,13 +52,13 @@ model Job {
 model Crew {
   id       String  @id @default(cuid())
   name     String
-  members  String? // comma-separated for MVP
+  members  String?
   active   Boolean @default(true)
 }
 
 model Vehicle {
   id       String  @id @default(cuid())
-  type     String  // trailer_24, box_26
+  type     String
   plate    String?
   active   Boolean @default(true)
 }
@@ -72,8 +78,8 @@ model Order {
   customer  String
   email     String?
   phone     String?
-  itemsJson String     // MVP; replace w/ OrderItem later
-  provider  String     // shopify, ubx, etc
+  itemsJson String
+  provider  String
   status    String     @default("created")
   createdAt DateTime   @default(now())
 }
