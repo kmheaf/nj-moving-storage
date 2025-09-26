@@ -5,6 +5,8 @@ import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nj-moving-storage.vercel.app"),
+  alternates: { canonical: "/" },
   title: "Jersey Strong Moves | New Jersey Moving & Storage",
   description: "Professional movers in Ramsey, NJ serving Bergen County and Northern New Jersey. On time. Packed right. Jersey strong.",
   openGraph: {
