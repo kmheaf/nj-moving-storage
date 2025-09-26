@@ -1,5 +1,3 @@
-$utf8NoBom = New-Object System.Text.UTF8Encoding $false
-$header = @'
 "use client"
 import Link from "next/link"
 import Image from "next/image"
@@ -34,5 +32,3 @@ export default function Header() {
     </header>
   )
 }
-'@
-[System.IO.File]::WriteAllText("src\components\Header.tsx", $header, $utf8NoBom)
