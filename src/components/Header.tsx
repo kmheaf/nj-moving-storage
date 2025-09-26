@@ -4,10 +4,9 @@ import Image from "next/image"
 
 export function Header() {
   return (
-    <header className="border-b">
+    <header className="sticky top-0 z-50 border-b bg-white/95 backdrop-blur shadow-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 md:py-4">
         <Link href="/" className="flex items-center">
-          {/* BIGGER logo; scales down a bit on small screens */}
           <Image
             src="/logo.png"
             alt="New Jersey Moving & Storage"
