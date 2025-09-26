@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="fade" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.15"/>
+    </linearGradient>
+    <pattern id="stars" width="40" height="40" patternUnits="userSpaceOnUse">
+      <polygon points="20,5 24,16 36,16 26,22 30,33 20,26 10,33 14,22 4,16 16,16" fill="#3C3B6E" opacity="0.25"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="500" fill="#fff"/>
+  <!-- subtle red stripes -->
+  <g opacity="0.12">
+    <rect y="0" width="800" height="38" fill="#B22234"/>
+    <rect y="76" width="800" height="38" fill="#B22234"/>
+    <rect y="152" width="800" height="38" fill="#B22234"/>
+    <rect y="228" width="800" height="38" fill="#B22234"/>
+    <rect y="304" width="800" height="38" fill="#B22234"/>
+    <rect y="380" width="800" height="38" fill="#B22234"/>
+    <rect y="456" width="800" height="38" fill="#B22234"/>
+  </g>
+  <!-- subtle blue star field -->
+  <rect x="0" y="0" width="320" height="228" fill="#3C3B6E" opacity="0.12"/>
+  <rect x="0" y="0" width="320" height="228" fill="url(#stars)" />
+  <rect width="800" height="500" fill="url(#fade)"/>
+</svg>
