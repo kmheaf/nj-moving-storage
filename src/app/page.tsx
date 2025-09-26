@@ -11,20 +11,36 @@ function ServiceCard({title,desc}:{title:string,desc:string}){
 export default function Page(){
   return (
     <>
-      {/* HERO with centered logo */}
+      {/* HERO: split layout, logo right */}
       <section className="hero">
-        <div className="mx-auto max-w-6xl px-6 pt-16 md:pt-20 pb-14">
-          <div className="flex flex-col items-start md:items-center">
-            <Image src="/logo.png" alt="New Jersey Moving & Storage" width={96} height={96} priority />
-            <h1 className="mt-6 text-4xl md:text-6xl font-extrabold tracking-tight max-w-4xl text-balance">
-              Jersey Strong Moves — Local Experts in Ramsey &amp; Bergen County
-            </h1>
-            <p className="mt-5 text-lg md:text-xl max-w-3xl text-pretty">
-              Trusted movers who pack with care, move with speed, and deliver peace of mind — right here in Northern New Jersey.
-            </p>
-            <div className="mt-8 flex gap-3">
-              <a className="btn btn-primary" href="/quote">Get a Free Quote</a>
-              <a className="btn btn-outline" href="/shop">Shop Moving Supplies</a>
+        <div className="mx-auto max-w-6xl px-6 pt-12 md:pt-16 pb-12">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-10">
+            {/* Text block (left) */}
+            <div className="basis-1/2">
+              <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-balance">
+                Jersey Strong Moves — Local Experts in Ramsey &amp; Bergen County
+              </h1>
+              <p className="mt-5 text-lg md:text-xl max-w-3xl text-pretty">
+                Trusted movers who pack with care, move with speed, and deliver peace of mind — right here in Northern New Jersey.
+              </p>
+              <div className="mt-8 flex gap-3">
+                <a className="btn btn-primary" href="/quote">Get a Free Quote</a>
+                <a className="btn btn-outline" href="/shop">Shop Moving Supplies</a>
+              </div>
+            </div>
+
+            {/* Logo (right) — match width to text block */}
+            <div className="basis-1/2 flex justify-center md:justify-end">
+              <div className="w-full max-w-[560px]">
+                <Image
+                  src="/logo.png"
+                  alt="New Jersey Moving & Storage"
+                  width={1120}
+                  height={1120}
+                  className="w-full h-auto"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -48,7 +64,6 @@ export default function Page(){
             <ServiceCard title="Commercial & Office" desc="Minimal downtime, weekend/after-hours options." />
             <ServiceCard title="Long-Distance" desc="Interstate planning & reliable ETAs." />
             <ServiceCard title="Packing & Unpacking" desc="Full-service or partial — you choose." />
-            <ServiceCard title="Storage Solutions" desc="Short or long-term storage to fit your timeline." />
             <ServiceCard title="Specialty Items" desc="Pianos, safes, oversized furniture — handled right." />
           </div>
           <a className="inline-block mt-6 underline" href="/services">See all services →</a>
@@ -88,7 +103,7 @@ export default function Page(){
         </div>
       </section>
 
-      {/* TESTIMONIALS (placeholder quotes) */}
+      {/* TESTIMONIALS */}
       <section className="section bg-[#fafbff]">
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-2xl font-bold">What Customers Say</h2>
@@ -100,7 +115,7 @@ export default function Page(){
         </div>
       </section>
 
-      {/* FAQ (accordion) */}
+      {/* FAQ — removed storage question per request */}
       <section className="section">
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-2xl font-bold">FAQs</h2>
@@ -116,10 +131,6 @@ export default function Page(){
             <details className="faq">
               <summary>How early should I book?</summary>
               <p className="mt-2 text-sm">2–4 weeks is ideal, especially for weekends and month-end dates in Bergen County.</p>
-            </details>
-            <details className="faq">
-              <summary>Do you provide storage?</summary>
-              <p className="mt-2 text-sm">Yes — short and long-term storage options available.</p>
             </details>
           </div>
         </div>
