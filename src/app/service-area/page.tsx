@@ -22,42 +22,12 @@ type Town = {
 }
 
 const towns: Town[] = [
-  {
-    name: "Ramsey",
-    slug: "ramsey",
-    blurb:
-      "Home base for our crew. Fast response times, on-time arrivals, and careful protection for homes and apartments in Ramsey, NJ.",
-  },
-  {
-    name: "Mahwah",
-    slug: "mahwah",
-    blurb:
-      "From condo moves to full homes, we handle Mahwah relocations with clear communication and dependable scheduling.",
-  },
-  {
-    name: "Ridgewood",
-    slug: "ridgewood",
-    blurb:
-      "Historic homes, narrow streets, and tight entries—our team plans ahead so move-in day stays smooth.",
-  },
-  {
-    name: "Paramus",
-    slug: "paramus",
-    blurb:
-      "Residential and office moves near Route 17 & 4. Weekend and after-hours options available on request.",
-  },
-  {
-    name: "Montvale",
-    slug: "montvale",
-    blurb:
-      "North Bergen County moves with careful packing, furniture wrapping, and reliable ETAs.",
-  },
-  {
-    name: "Wyckoff",
-    slug: "wyckoff",
-    blurb:
-      "Local moves with floor, doorway, and banister protection. Friendly crews and transparent pricing.",
-  },
+  { name: "Ramsey", slug: "ramsey", blurb: "Home base for our crew. Fast response times, on-time arrivals, and careful protection for homes and apartments in Ramsey, NJ." },
+  { name: "Mahwah", slug: "mahwah", blurb: "From condo moves to full homes, we handle Mahwah relocations with clear communication and dependable scheduling." },
+  { name: "Ridgewood", slug: "ridgewood", blurb: "Historic homes, narrow streets, and tight entries—our team plans ahead so move-in day stays smooth." },
+  { name: "Paramus", slug: "paramus", blurb: "Residential and office moves near Route 17 & 4. Weekend and after-hours options available on request." },
+  { name: "Montvale", slug: "montvale", blurb: "North Bergen County moves with careful packing, furniture wrapping, and reliable ETAs." },
+  { name: "Wyckoff", slug: "wyckoff", blurb: "Local moves with floor, doorway, and banister protection. Friendly crews and transparent pricing." },
 ]
 
 function TownCard({ town }: { town: Town }) {
@@ -77,9 +47,7 @@ function TownCard({ town }: { town: Town }) {
         </Link>
       </div>
       <div className="mt-3 text-sm">
-        <Link href={`/services`} className="underline underline-offset-4">
-          See services →
-        </Link>
+        <Link href="/services" className="underline underline-offset-4">See services →</Link>
       </div>
     </div>
   )
@@ -108,6 +76,7 @@ export default function ServiceAreaPage() {
       "https://nj-moving-storage.vercel.app/services",
     ],
   }
+  const ld = JSON.stringify(jsonLd)
 
   return (
     <main>
@@ -116,9 +85,9 @@ export default function ServiceAreaPage() {
         <div className="mx-auto max-w-6xl px-6 py-10 md:py-14">
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">Service Area</h1>
           <p className="mt-3 max-w-3xl text-[15px] md:text-base text-[var(--muted)]">
-            We proudly serve Ramsey and the surrounding Bergen County communities: Mahwah,
-            Ridgewood, Paramus, Montvale, Wyckoff, and Northern New Jersey at large. Licensed &
-            insured movers for homes and offices — on time, every time.
+            We proudly serve Ramsey and the surrounding Bergen County communities: Mahwah, Ridgewood, Paramus,
+            Montvale, Wyckoff, and Northern New Jersey at large. Licensed & insured movers for homes and offices —
+            on time, every time.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3 text-sm">
             <span className="inline-flex items-center rounded-full border px-3 py-1">Licensed &amp; Insured</span>
@@ -165,11 +134,7 @@ export default function ServiceAreaPage() {
       </section>
 
       {/* JSON-LD for LocalBusiness / areaServed */}
-      <script
-        type="application/ld+json"
-        // @ts-ignore
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ld }} />
     </main>
   )
 }
