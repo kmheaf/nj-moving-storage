@@ -1,0 +1,79 @@
+﻿generator client { provider = "prisma-client-js" }
+datasource db  { provider = "postgresql"; url = env("DATABASE_URL") }
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  role      String   @default("admin")
+  createdAt DateTime @default(now())
+}
+
+model Lead {
+  id            String   @id @default(cuid())
+  name          String
+  email         String?
+  phone         String
+  moveDateStart DateTime?
+  moveDateEnd   DateTime?
+  origin        String
+  destination   String
+  bedrooms      Int?
+  notes         String?
+  source        String?   // google, yelp, referral, gbp
+  status        String    @default("new") // new, estimating, booked, closed
+  createdAt     DateTime  @default(now())
+  jobs          Job[]
+  notesRel      Note[]
+}
+
+model Job {
+  id           String   @id @default(cuid())
+  leadId       String
+  lead         Lead     @relation(fields: [leadId], references: [id])
+  quotedHours  Float?
+  hourlyRate   Int?
+  depositCents Int?     // Stripe deposit
+  startAt      DateTime?
+  endAt        DateTime?
+  crewId       String?
+  truckId      String?
+  status       String    @default("scheduled")
+  createdAt    DateTime  @default(now())
+  notesRel     Note[]
+}
+
+model Crew {
+  id       String  @id @default(cuid())
+  name     String
+  members  String? // comma-separated for MVP
+  active   Boolean @default(true)
+}
+
+model Vehicle {
+  id       String  @id @default(cuid())
+  type     String  // trailer_24, box_26
+  plate    String?
+  active   Boolean @default(true)
+}
+
+model Note {
+  id       String   @id @default(cuid())
+  body     String
+  leadId   String?
+  jobId    String?
+  lead     Lead?    @relation(fields: [leadId], references: [id])
+  job      Job?     @relation(fields: [jobId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Order {
+  id        String   @id @default(cuid())
+  customer  String
+  email     String?
+  phone     String?
+  itemsJson String     // MVP; replace w/ OrderItem later
+  provider  String     // shopify, ubx, etc
+  status    String     @default("created")
+  createdAt DateTime   @default(now())
+}
